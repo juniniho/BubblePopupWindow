@@ -43,11 +43,11 @@ public class BubblePopupWindow extends PopupWindow {
     }
 
     public void show(View parent) {
-        show(parent, Gravity.TOP, getMeasuredWidth() / 2);
+        show(parent, Gravity.TOP, getMeasuredWidth() / 2,0,0);
     }
 
     public void show(View parent, int gravity) {
-        show(parent, gravity, getMeasuredWidth() / 2);
+        show(parent, gravity, getMeasuredWidth() / 2,0,0);
     }
 
     /**
@@ -57,7 +57,7 @@ public class BubblePopupWindow extends PopupWindow {
      * @param gravity
      * @param bubbleOffset 气泡尖角位置偏移量。默认位于中间
      */
-    public void show(View parent, int gravity, float bubbleOffset) {
+    public void show(View parent, int gravity, float bubbleOffset,int popOffSetX,int popOffSetY) {
         BubbleRelativeLayout.BubbleLegOrientation orientation = BubbleRelativeLayout.BubbleLegOrientation.LEFT;
         if (!this.isShowing()) {
             switch (gravity) {
@@ -83,16 +83,16 @@ public class BubblePopupWindow extends PopupWindow {
 
             switch (gravity) {
                 case Gravity.BOTTOM:
-                    showAsDropDown(parent);
+                    showAsDropDown(parent,popOffSetX,popOffSetY);
                     break;
                 case Gravity.TOP:
-                    showAtLocation(parent, Gravity.NO_GRAVITY, location[0], location[1] - getMeasureHeight());
+                    showAtLocation(parent, Gravity.NO_GRAVITY, location[0] + popOffSetX, location[1] - getMeasureHeight()+popOffSetY);
                     break;
                 case Gravity.RIGHT:
-                    showAtLocation(parent, Gravity.NO_GRAVITY, location[0] + parent.getWidth(), location[1] - (parent.getHeight() / 2));
+                    showAtLocation(parent, Gravity.NO_GRAVITY, location[0] + parent.getWidth() + popOffSetX, location[1] - (parent.getHeight() / 2)+popOffSetY);
                     break;
                 case Gravity.LEFT:
-                    showAtLocation(parent, Gravity.NO_GRAVITY, location[0] - getMeasuredWidth(), location[1] - (parent.getHeight() / 2));
+                    showAtLocation(parent, Gravity.NO_GRAVITY, location[0] - getMeasuredWidth()+ popOffSetX, location[1] - (parent.getHeight() / 2) + popOffSetY);
                     break;
                 default:
                     break;

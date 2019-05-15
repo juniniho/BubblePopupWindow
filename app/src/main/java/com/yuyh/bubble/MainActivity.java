@@ -41,9 +41,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void rightTop(View view) {
-        View bubbleView = inflater.inflate(R.layout.layout_popup_view, null);
-        rightTopWindow.setBubbleView(bubbleView);
-        rightTopWindow.show(view, Gravity.LEFT, 0);
+        //测试自定义布局
+        View bubbleView = inflater.inflate(R.layout.view_popup_menu, null);
+        centerWindow.setBubbleView(bubbleView);
+        centerWindow.show(view, Gravity.BOTTOM, dip2px(103),-dip2px(30),100);
     }
 
     public void leftBottom(View view) {
@@ -55,12 +56,21 @@ public class MainActivity extends AppCompatActivity {
     public void rightBottom(View view) {
         View bubbleView = inflater.inflate(R.layout.layout_popup_view, null);
         rightBottomWindow.setBubbleView(bubbleView);
-        rightBottomWindow.show(view, Gravity.RIGHT, 0);
+        rightBottomWindow.show(view, Gravity.RIGHT, 0,0,0);
     }
 
     public void center(View view) {
         View bubbleView = inflater.inflate(R.layout.layout_popup_view, null);
         centerWindow.setBubbleView(bubbleView);
-        centerWindow.show(view, Gravity.BOTTOM, 0);
+        centerWindow.show(view, Gravity.BOTTOM, 0,0,0);
     }
+
+    /**
+     * dip转换px
+     */
+    public int dip2px(int dip) {
+        final float scale = getResources().getDisplayMetrics().density;
+        return (int) (dip * scale + 0.5f);
+    }
+
 }
