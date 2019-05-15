@@ -71,12 +71,12 @@ public class BubbleRelativeLayout extends RelativeLayout {
             TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.bubble);
 
             try {
-                PADDING = a.getDimensionPixelSize(R.styleable.bubble_padding, PADDING);
-                SHADOW_COLOR = a.getInt(R.styleable.bubble_shadowColor, SHADOW_COLOR);
-                LEG_HALF_BASE = a.getDimensionPixelSize(R.styleable.bubble_halfBaseOfLeg, LEG_HALF_BASE);
+                PADDING = a.getDimensionPixelSize(R.styleable.bubble_bb_padding, PADDING);
+                SHADOW_COLOR = a.getInt(R.styleable.bubble_bb_shadowColor, SHADOW_COLOR);
+                LEG_HALF_BASE = a.getDimensionPixelSize(R.styleable.bubble_bb_halfBaseOfLeg, LEG_HALF_BASE);
                 MIN_LEG_DISTANCE = PADDING + LEG_HALF_BASE;
-                STROKE_WIDTH = a.getFloat(R.styleable.bubble_strokeWidth, STROKE_WIDTH);
-                CORNER_RADIUS = a.getFloat(R.styleable.bubble_cornerRadius, CORNER_RADIUS);
+                STROKE_WIDTH = a.getFloat(R.styleable.bubble_bb_strokeWidth, STROKE_WIDTH);
+                CORNER_RADIUS = a.getFloat(R.styleable.bubble_bb_cornerRadius, CORNER_RADIUS);
             } finally {
                 if (a != null) {
                     a.recycle();

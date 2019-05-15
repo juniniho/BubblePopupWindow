@@ -5,10 +5,10 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:background="@android:color/transparent"
-    app:cornerRadius="10"
-    app:halfBaseOfLeg="18dp"
-    app:padding="18dp"
-    app:shadowColor="#64000000"
-    app:strokeWidth="5">
+    app:bb_cornerRadius="10"
+    app:bb_halfBaseOfLeg="18dp"
+    app:bb_padding="18dp"
+    app:bb_shadowColor="#64000000"
+    app:bb_strokeWidth="5">
 
 </com.yuyh.library.BubbleRelativeLayout>

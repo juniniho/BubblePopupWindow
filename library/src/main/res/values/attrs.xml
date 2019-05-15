@@ -2,11 +2,11 @@
 <resources>
 
     <declare-styleable name="bubble">
-        <attr name="shadowColor" format="color" />
-        <attr name="padding" format="dimension" />
-        <attr name="strokeWidth" format="float" />
-        <attr name="cornerRadius" format="float" />
-        <attr name="halfBaseOfLeg" format="dimension" />
+        <attr name="bb_shadowColor" format="color" />
+        <attr name="bb_padding" format="dimension" />
+        <attr name="bb_strokeWidth" format="float" />
+        <attr name="bb_cornerRadius" format="float" />
+        <attr name="bb_halfBaseOfLeg" format="dimension" />
     </declare-styleable>
 
 </resources>
