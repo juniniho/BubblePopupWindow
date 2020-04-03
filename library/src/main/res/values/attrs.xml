@@ -5,7 +5,7 @@
         <attr name="bb_shadowColor" format="color" />
         <attr name="bb_padding" format="dimension" />
         <attr name="bb_strokeWidth" format="float" />
-        <attr name="bb_cornerRadius" format="float" />
+        <attr name="bb_cornerRadius2" format="float" />
         <attr name="bb_halfBaseOfLeg" format="dimension" />
     </declare-styleable>
 

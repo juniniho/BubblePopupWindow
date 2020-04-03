@@ -1,0 +1,46 @@
+apply plugin: 'com.jfrog.artifactory'
+apply plugin: 'maven-publish'
+
+
+publishing {
+
+    publications {
+        mavenArr(MavenPublication) {
+            groupId = 'opensource'
+            artifactId = 'bubble_popupwindow'
+            version = '1.0.1'
+            artifact "${project.buildDir}/outputs/aar/${project.name}-release.aar"
+            pom.withXml {
+
+                def dependencies = asNode().getAt('dependencies')[0]
+                if (dependencies == null) {
+                    dependencies = asNode().appendNode('dependencies')
+                }
+                configurations.api.allDependencies.each {
+                    // 如果有compile fileTree()，group会为空，需要去除
+                    if (it.group != null) {
+                        def dependency = dependencies.appendNode('dependency')
+                        dependency.appendNode('groupId', it.group)
+                        dependency.appendNode('artifactId', it.name)
+                        dependency.appendNode('version', it.version)
+                    }
+                }
+            }
+        }
+    }
+    artifactory {
+        contextUrl = PUSH_URL
+        publish {
+            repository {
+                repoKey = REPO_KEY
+                username = System.getenv("PUSH_USER_NAME")
+                password = System.getenv("PUSH_PASSWORD")
+            }
+            defaults {
+                publications('mavenArr')
+                publishArtifacts = true
+                publishPom = true
+            }
+        }
+    }
+}

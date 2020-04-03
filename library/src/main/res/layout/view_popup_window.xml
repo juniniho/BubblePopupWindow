@@ -5,7 +5,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:background="@android:color/transparent"
-    app:bb_cornerRadius="10"
+    app:bb_cornerRadius2="10"
     app:bb_halfBaseOfLeg="18dp"
     app:bb_padding="18dp"
     app:bb_shadowColor="#64000000"
